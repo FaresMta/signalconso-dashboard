@@ -1,0 +1,488 @@
+{
+  "source": {
+    "title": "SignalConso",
+    "page": "https://www.data.gouv.fr/datasets/signalconso",
+    "license": "Licence Ouverte / Open Licence (Etalab)"
+  },
+  "file": {
+    "name": "signalconso.csv",
+    "size_mb": 457.5,
+    "separator": ";",
+    "columns": [
+      "id",
+      "category",
+      "subcategories",
+      "Date",
+      "contactAgreement",
+      "status",
+      "forwardToReponseConso",
+      "tags",
+      "Signalement Transmis",
+      "Signalement Lu par l'entreprise",
+      "Signalement ayant reçu une réponse",
+      "dep_name",
+      "dep_code",
+      "Code Officiel Région",
+      "Nom Officiel Région"
+    ]
+  },
+  "columns_detected": {
+    "id": "id",
+    "date": "Date",
+    "category": "category",
+    "subcategories": "subcategories",
+    "status": "status",
+    "forwarded": "Signalement Transmis",
+    "read": "Signalement Lu par l'entreprise",
+    "answered": "Signalement ayant reçu une réponse",
+    "dep_code": "dep_code",
+    "dep_name": "dep_name"
+  },
+  "rows_raw": 2091131,
+  "rows_kept": 2091131,
+  "rows_removed": 0,
+  "bad_dates": 0,
+  "before_launch": 0,
+  "future_dates": 0,
+  "duplicates": 0,
+  "missing_category": 0,
+  "unlocated": 111549,
+  "date_min": "2018-11-25",
+  "date_max": "2026-10-18",
+  "first_month": "2018-11-01",
+  "last_complete_month": "2026-09-01",
+  "missing_pct": {
+    "id": 0.0,
+    "date": 0.0,
+    "category": 0.0,
+    "subcategories": 0.02,
+    "status": 34.87,
+    "forwarded": 0.0,
+    "read": 0.0,
+    "answered": 0.0,
+    "dep_code": 5.33,
+    "dep_name": 5.33
+  },
+  "has_geo": true,
+  "has_funnel": true,
+  "has_status": true,
+  "has_issues": true,
+  "category_labels": [
+    {
+      "code": "Accessibilite",
+      "label": "Accessibility",
+      "mapped": true
+    },
+    {
+      "code": "AchatInternet",
+      "label": "Online purchase",
+      "mapped": true
+    },
+    {
+      "code": "AchatMagasin",
+      "label": "In-store purchase",
+      "mapped": true
+    },
+    {
+      "code": "AchatMagasinInternet",
+      "label": "Store or online purchase",
+      "mapped": true
+    },
+    {
+      "code": "AchatMagasinLegacy",
+      "label": "In-store purchase",
+      "mapped": true
+    },
+    {
+      "code": "Animaux",
+      "label": "Pets & animals",
+      "mapped": true
+    },
+    {
+      "code": "Autre",
+      "label": "Other",
+      "mapped": true
+    },
+    {
+      "code": "BanqueAssuranceMutuelle",
+      "label": "Bank, insurance & health plan",
+      "mapped": true
+    },
+    {
+      "code": "CafeRestaurant",
+      "label": "Cafés & restaurants",
+      "mapped": true
+    },
+    {
+      "code": "Chien d'assistance refusé",
+      "label": "Assistance dog refused",
+      "mapped": true
+    },
+    {
+      "code": "Coronavirus",
+      "label": "Coronavirus",
+      "mapped": true
+    },
+    {
+      "code": "DemarchageAbusif",
+      "label": "Phone or door-to-door solicitation",
+      "mapped": true
+    },
+    {
+      "code": "DemarchesAdministratives",
+      "label": "Administrative procedures",
+      "mapped": true
+    },
+    {
+      "code": "EauGazElectricite",
+      "label": "Water, gas & electricity",
+      "mapped": true
+    },
+    {
+      "code": "Hygiène des locaux",
+      "label": "Hygiene practices",
+      "mapped": true
+    },
+    {
+      "code": "Hygiène du personnel",
+      "label": "Hygiene practices",
+      "mapped": true
+    },
+    {
+      "code": "Immobilier",
+      "label": "Real estate",
+      "mapped": true
+    },
+    {
+      "code": "Internet",
+      "label": "Internet & social media",
+      "mapped": true
+    },
+    {
+      "code": "IntoxicationAlimentaire",
+      "label": "Food poisoning",
+      "mapped": true
+    },
+    {
+      "code": "Maison de retraite (EHPAD)",
+      "label": "Nursing homes (EHPAD)",
+      "mapped": true
+    },
+    {
+      "code": "Matériel et objets",
+      "label": "Products & items",
+      "mapped": true
+    },
+    {
+      "code": "Nourriture et boissons",
+      "label": "Food & drink",
+      "mapped": true
+    },
+    {
+      "code": "Pratique d'hygiène",
+      "label": "Hygiene practices",
+      "mapped": true
+    },
+    {
+      "code": "Prix et paiement",
+      "label": "Prices & payment",
+      "mapped": true
+    },
+    {
+      "code": "Problème suite à un achat sur internet",
+      "label": "Online purchase",
+      "mapped": true
+    },
+    {
+      "code": "Produit alimentaire",
+      "label": "Food & drink",
+      "mapped": true
+    },
+    {
+      "code": "ProduitsObjets",
+      "label": "Products & items",
+      "mapped": true
+    },
+    {
+      "code": "Publicité",
+      "label": "Advertising",
+      "mapped": true
+    },
+    {
+      "code": "RecouvrementAmiable",
+      "label": "Debt collection",
+      "mapped": true
+    },
+    {
+      "code": "Refus de servir/ vendre",
+      "label": "Refusal to serve or sell",
+      "mapped": true
+    },
+    {
+      "code": "Retrait-Rappel Spécifique",
+      "label": "Product recalls",
+      "mapped": true
+    },
+    {
+      "code": "RetraitRappelSpecifique",
+      "label": "Product recalls",
+      "mapped": true
+    },
+    {
+      "code": "Sante",
+      "label": "Health",
+      "mapped": true
+    },
+    {
+      "code": "Services après-vente",
+      "label": "After-sales & purchase services",
+      "mapped": true
+    },
+    {
+      "code": "Services associés à l'achat",
+      "label": "After-sales & purchase services",
+      "mapped": true
+    },
+    {
+      "code": "ServicesAuxParticuliers",
+      "label": "Services to individuals",
+      "mapped": true
+    },
+    {
+      "code": "TelEauGazElec",
+      "label": "Phone, water, gas & electricity (old list)",
+      "mapped": true
+    },
+    {
+      "code": "TelephonieFaiMedias",
+      "label": "Phone, internet provider & media",
+      "mapped": true
+    },
+    {
+      "code": "TravauxRenovations",
+      "label": "Building works & renovation",
+      "mapped": true
+    },
+    {
+      "code": "Téléphonie / Internet / médias",
+      "label": "Phone, internet provider & media",
+      "mapped": true
+    },
+    {
+      "code": "VoitureVehicule",
+      "label": "Cars, vehicles & bikes",
+      "mapped": true
+    },
+    {
+      "code": "VoitureVehiculeVelo",
+      "label": "Cars, vehicles & bikes",
+      "mapped": true
+    },
+    {
+      "code": "VoyageLoisirs",
+      "label": "Travel & leisure",
+      "mapped": true
+    }
+  ],
+  "unmapped_categories": [],
+  "taxonomy": [
+    {
+      "category": "Online purchase",
+      "first_month": "2019-03-01",
+      "last_month": "2026-10-01",
+      "reports": 573683
+    },
+    {
+      "category": "Phone or door-to-door solicitation",
+      "first_month": "2021-10-01",
+      "last_month": "2026-10-01",
+      "reports": 360942
+    },
+    {
+      "category": "Store or online purchase",
+      "first_month": "2019-09-01",
+      "last_month": "2023-05-01",
+      "reports": 174131
+    },
+    {
+      "category": "In-store purchase",
+      "first_month": "2022-03-01",
+      "last_month": "2026-10-01",
+      "reports": 137833
+    },
+    {
+      "category": "Building works & renovation",
+      "first_month": "2019-09-01",
+      "last_month": "2026-10-01",
+      "reports": 126120
+    },
+    {
+      "category": "Phone, internet provider & media",
+      "first_month": "2020-06-01",
+      "last_month": "2026-10-01",
+      "reports": 105596
+    },
+    {
+      "category": "Travel & leisure",
+      "first_month": "2019-09-01",
+      "last_month": "2026-10-01",
+      "reports": 105403
+    },
+    {
+      "category": "Cars, vehicles & bikes",
+      "first_month": "2019-09-01",
+      "last_month": "2026-10-01",
+      "reports": 90662
+    },
+    {
+      "category": "Bank, insurance & health plan",
+      "first_month": "2019-09-01",
+      "last_month": "2026-10-01",
+      "reports": 88784
+    },
+    {
+      "category": "Cafés & restaurants",
+      "first_month": "2019-09-01",
+      "last_month": "2026-10-01",
+      "reports": 87835
+    },
+    {
+      "category": "Services to individuals",
+      "first_month": "2019-09-01",
+      "last_month": "2026-10-01",
+      "reports": 56925
+    },
+    {
+      "category": "Real estate",
+      "first_month": "2019-09-01",
+      "last_month": "2026-10-01",
+      "reports": 45113
+    },
+    {
+      "category": "Internet & social media",
+      "first_month": "2020-10-01",
+      "last_month": "2026-10-01",
+      "reports": 36953
+    },
+    {
+      "category": "Water, gas & electricity",
+      "first_month": "2020-06-01",
+      "last_month": "2026-10-01",
+      "reports": 26405
+    },
+    {
+      "category": "Administrative procedures",
+      "first_month": "2019-10-01",
+      "last_month": "2026-10-01",
+      "reports": 25280
+    },
+    {
+      "category": "Food poisoning",
+      "first_month": "2018-11-01",
+      "last_month": "2026-10-01",
+      "reports": 17950
+    },
+    {
+      "category": "Health",
+      "first_month": "2019-10-01",
+      "last_month": "2026-10-01",
+      "reports": 9065
+    },
+    {
+      "category": "Coronavirus",
+      "first_month": "2020-03-01",
+      "last_month": "2023-02-01",
+      "reports": 8385
+    },
+    {
+      "category": "Pets & animals",
+      "first_month": "2020-01-01",
+      "last_month": "2026-10-01",
+      "reports": 5375
+    },
+    {
+      "category": "Debt collection",
+      "first_month": "2025-04-01",
+      "last_month": "2026-10-01",
+      "reports": 4470
+    },
+    {
+      "category": "Phone, water, gas & electricity (old list)",
+      "first_month": "2019-09-01",
+      "last_month": "2020-06-01",
+      "reports": 2160
+    },
+    {
+      "category": "Prices & payment",
+      "first_month": "2018-11-01",
+      "last_month": "2019-10-01",
+      "reports": 473
+    },
+    {
+      "category": "Hygiene practices",
+      "first_month": "2018-11-01",
+      "last_month": "2019-10-01",
+      "reports": 431
+    },
+    {
+      "category": "Food & drink",
+      "first_month": "2018-11-01",
+      "last_month": "2019-10-01",
+      "reports": 417
+    },
+    {
+      "category": "Advertising",
+      "first_month": "2018-11-01",
+      "last_month": "2019-10-01",
+      "reports": 293
+    },
+    {
+      "category": "After-sales & purchase services",
+      "first_month": "2019-02-01",
+      "last_month": "2019-10-01",
+      "reports": 182
+    },
+    {
+      "category": "Accessibility",
+      "first_month": "2025-12-01",
+      "last_month": "2026-10-01",
+      "reports": 109
+    },
+    {
+      "category": "Product recalls",
+      "first_month": "2022-03-01",
+      "last_month": "2022-07-01",
+      "reports": 55
+    },
+    {
+      "category": "Products & items",
+      "first_month": "2019-02-01",
+      "last_month": "2019-11-01",
+      "reports": 51
+    },
+    {
+      "category": "Refusal to serve or sell",
+      "first_month": "2019-02-01",
+      "last_month": "2019-10-01",
+      "reports": 31
+    },
+    {
+      "category": "Other",
+      "first_month": "2018-12-01",
+      "last_month": "2019-02-01",
+      "reports": 10
+    },
+    {
+      "category": "Nursing homes (EHPAD)",
+      "first_month": "2020-02-01",
+      "last_month": "2020-02-01",
+      "reports": 8
+    },
+    {
+      "category": "Assistance dog refused",
+      "first_month": "2019-04-01",
+      "last_month": "2019-04-01",
+      "reports": 1
+    }
+  ]
+}

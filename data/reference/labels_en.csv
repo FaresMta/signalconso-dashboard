@@ -1,0 +1,51 @@
+field,code,label
+category,AchatInternet,Online purchase
+category,Problème suite à un achat sur internet,Online purchase
+category,AchatMagasin,In-store purchase
+category,AchatMagasinLegacy,In-store purchase
+category,AchatMagasinInternet,Store or online purchase
+category,DemarchageAbusif,Phone or door-to-door solicitation
+category,TravauxRenovations,Building works & renovation
+category,VoyageLoisirs,Travel & leisure
+category,TelephonieFaiMedias,"Phone, internet provider & media"
+category,Téléphonie / Internet / médias,"Phone, internet provider & media"
+category,BanqueAssuranceMutuelle,"Bank, insurance & health plan"
+category,VoitureVehiculeVelo,"Cars, vehicles & bikes"
+category,VoitureVehicule,"Cars, vehicles & bikes"
+category,CafeRestaurant,Cafés & restaurants
+category,Internet,Internet & social media
+category,Immobilier,Real estate
+category,Sante,Health
+category,EauGazElectricite,"Water, gas & electricity"
+category,TelEauGazElec,"Phone, water, gas & electricity (old list)"
+category,Animaux,Pets & animals
+category,ServicesAuxParticuliers,Services to individuals
+category,Alimentation,Food
+category,DemarchesAdministratives,Administrative procedures
+category,IntoxicationAlimentaire,Food poisoning
+category,Coronavirus,Coronavirus
+category,RecouvrementAmiable,Debt collection
+category,Accessibilite,Accessibility
+category,Retrait-Rappel Spécifique,Product recalls
+category,RetraitRappelSpecifique,Product recalls
+category,Prix et paiement,Prices & payment
+category,Pratique d'hygiène,Hygiene practices
+category,Hygiène des locaux,Hygiene practices
+category,Hygiène du personnel,Hygiene practices
+category,Nourriture et boissons,Food & drink
+category,Produit alimentaire,Food & drink
+category,Publicité,Advertising
+category,Services après-vente,After-sales & purchase services
+category,Services associés à l'achat,After-sales & purchase services
+category,Matériel et objets,Products & items
+category,ProduitsObjets,Products & items
+category,Refus de servir/ vendre,Refusal to serve or sell
+category,Chien d'assistance refusé,Assistance dog refused
+category,Maison de retraite (EHPAD),Nursing homes (EHPAD)
+category,Autre,Other
+status,Infonde,Unfounded
+status,MalAttribue,Wrongly assigned
+status,PromesseAction,Action promised
+status,NonConsulte,Not opened
+status,ConsulteIgnore,"Opened, ignored"
+status,TraitementEnCours,In progress

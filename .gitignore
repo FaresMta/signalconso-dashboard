@@ -1,0 +1,9 @@
+# Raw data is large: download it with scripts/download_data.py
+data/raw/*.csv
+data/raw/*.part
+# Processed files (data/processed/) are small and ARE committed so the app can be deployed.
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
