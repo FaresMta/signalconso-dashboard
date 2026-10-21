@@ -106,7 +106,7 @@ def kpis(ctx: Context) -> None:
         table = metrics.department_table(view)
         if table["n"].sum() > 0:
             best = table.sort_values("rate_100k", ascending=False).iloc[0]
-            col4.metric("Highest rate (départements)", best["name"], f"{best['rate_100k']:.0f} per 100,000 residents",
+            col4.metric("Top département (business location)", best["name"], f"{best['rate_100k']:.0f} per 100,000 residents",
                         delta_color="off", delta_arrow="off")
 
 

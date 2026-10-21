@@ -12,8 +12,9 @@ from core.context import Context
 
 def render(ctx: Context) -> None:
     st.header("6 · Your check")
-    st.write("Pick a département and, if you like, a sector. Everything below uses the period chosen in the "
-             "sidebar and compares your choice with the whole of France.")
+    st.write("Pick a département and, if you like, a sector. The département is most likely where the reported "
+             "*business* is based (see tab 4). Everything below uses the period chosen in the sidebar and "
+             "compares your choice with the whole of France.")
     if not ctx.report["has_geo"]:
         st.warning("The file has no département column, so this check is unavailable.")
         return
@@ -39,7 +40,7 @@ def render(ctx: Context) -> None:
 
     where = f"“{sector}” reports" if sector != "All sectors" else "reports"
     ui.key_message(
-        f"{profile['name']} has **{ui.fmt_int(profile['reports'])} {where}** in the period, "
+        f"Businesses based in {profile['name']} have **{ui.fmt_int(profile['reports'])} {where}** in the period, "
         f"**{profile['rate_100k']:.0f} per 100,000 residents**: rank **{profile['rank']} of "
         f"{profile['ranked']}** départements (1 = most reports per resident)."
     )
@@ -92,4 +93,4 @@ def render(ctx: Context) -> None:
         "- **Never pay or share bank details** to someone who contacts you without being asked."
     )
     st.caption("A report is a claim, not proven fraud. Small départements can show large swings with few reports. "
-               "The file does not say whether the département is the consumer's or the business's (see tab 4).")
+               "The département is most likely the business's, not the consumer's (see tab 4).")

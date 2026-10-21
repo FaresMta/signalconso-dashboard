@@ -62,7 +62,10 @@ def monthly_by_sector(view: pd.DataFrame, sectors: list[str]) -> pd.DataFrame:
     sub = view[view["category"].isin(sectors)]
     out = sub.groupby(["ym", "category"], observed=True)["n"].sum().reset_index()
     out["category"] = out["category"].astype(str)
-    return out
+    # Drop the stray reports before a sector really started (a straight line across empty years is misleading).
+    first = out[out["n"] >= np.maximum(20, out.groupby("category")["n"].transform("max") * 0.02)]
+    start = first.groupby("category")["ym"].min()
+    return out[out["ym"] >= out["category"].map(start)].reset_index(drop=True)
 
 
 def sector_ranking(view: pd.DataFrame) -> pd.DataFrame:
@@ -225,10 +228,40 @@ def status_breakdown(statuses: pd.DataFrame, start, end, categories) -> pd.DataF
     return out.reset_index(drop=True)
 
 
+def watchlist(view: pd.DataFrame, last_month: pd.Timestamp, min_reports: int = config.MIN_REPORTS_FOR_RATES) -> pd.DataFrame:
+    """Sectors compared over the last 12 complete months and the 12 before.
+
+    Columns: category, recent (reports), previous, growth (None if the sector was too small before),
+    share (of all recent reports in the selection), reply_rate (answered / filed, recent months).
+    """
+    months = pd.date_range(end=last_month, periods=24, freq="MS")
+    recent_months, previous_months = months[12:], months[:12]
+    recent_rows = view[view["ym"].isin(recent_months)]
+    if recent_rows.empty:
+        return pd.DataFrame()
+    recent = recent_rows.groupby("category", observed=True)[list(STAGES)].sum()
+    previous = view[view["ym"].isin(previous_months)].groupby("category", observed=True)["n"].sum()
+    out = recent.rename(columns={"n": "recent"})
+    out["previous"] = previous.reindex(out.index).fillna(0)
+    out["share"] = out["recent"] / out["recent"].sum()
+    out = out[out["recent"] >= min_reports].copy()
+    out["growth"] = np.where(out["previous"] >= min_reports, out["recent"] / out["previous"].replace(0, np.nan) - 1,
+                             np.nan)
+    out["reply_rate"] = out["answered"] / out["recent"]
+    out = out.reset_index()
+    out["category"] = out["category"].astype(str)
+    return out.sort_values("recent", ascending=False).reset_index(drop=True)
+
+
+# Answers to form questions that the source stores as "reasons": they say nothing about the problem itself.
+GENERIC_REASONS = {"autre", "oui", "non", "ne sais pas", "il y a moins de 2 ans", "il y a plus de 2 ans"}
+
+
 def top_issues(issues: pd.DataFrame, start, end, sector: str, limit: int = 10) -> pd.DataFrame:
     sub = issues[(issues["ym"] >= start) & (issues["ym"] <= end) & (issues["category"] == sector)]
-    return (sub.groupby("issue", as_index=False)["n"].sum()
-            .sort_values("n", ascending=False).head(limit).reset_index(drop=True))
+    out = sub.groupby("issue", as_index=False)["n"].sum()
+    out = out[~out["issue"].str.strip().str.lower().isin(GENERIC_REASONS)]
+    return out.sort_values("n", ascending=False).head(limit).reset_index(drop=True)
 
 
 # ------------------------------------------------------------------------------------------------

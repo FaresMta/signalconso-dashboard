@@ -41,14 +41,14 @@ def render(ctx: Context) -> None:
         st.markdown(
             "1. **What?** Which sectors draw the most reports, and is the volume rising?\n"
             "2. **When?** Are there seasons when a sector peaks?\n"
-            "3. **Where?** Which départements report the most, once population is taken into account?\n"
+            "3. **Where?** In which départements are the reported businesses based, per head of population?\n"
             "4. **Then what?** Do reports reach the business, get read, get an answer — and what if "
             "more of them did? *(extra: reply-gap simulator)*"
         )
         st.subheader("Plus a tool for you")
         st.write(
-            "**Your check** lets you pick your département and a sector to see how it compares with the "
-            "rest of France. *(extra: vigilance check)*"
+            "**Your check** lets you pick a département and a sector to see how the businesses based there "
+            "compare with the rest of France. *(extra: vigilance check)*"
         )
 
     with st.expander("Definitions"):
@@ -58,6 +58,7 @@ def render(ctx: Context) -> None:
             "- **Forwarded / read / answered:** the three follow-up flags in the file — the report was "
             "sent to the business, the business opened it, the business replied. The same three stages "
             "appear on the authority's own public dashboard.\n"
+            "- **Département:** most likely where the reported business is based (see “Where”).\n"
             "- **Per 100,000 residents:** reports divided by the département's population, so large "
             "départements do not dominate by size alone."
         )

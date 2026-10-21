@@ -96,3 +96,4 @@ Run the tests with `pip install -r requirements-dev.txt` then `python -m pytest`
 - Per-capita rates use rounded population figures; map bubbles use approximate centroids.
 - English labels for source codes are our own translations; reasons are left in French.
 - Nothing here establishes causes.
+- The département column is undocumented; the pattern (about a quarter of online-purchase reports in Paris) indicates it is the reported business's location, so the geography tabs describe where businesses are based, not where consumers live.

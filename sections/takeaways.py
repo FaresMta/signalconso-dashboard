@@ -26,8 +26,9 @@ def render(ctx: Context) -> None:
         table = metrics.department_table(view)
         if table["n"].sum() > 0:
             top = table.sort_values("rate_100k", ascending=False).iloc[0]
-            insights.append(f"**Territory.** {top['name']} has the highest rate: "
-                            f"{top['rate_100k']:.0f} reports per 100,000 residents.")
+            insights.append(f"**Territory.** Businesses based in {top['name']} draw the most reports per resident "
+                            f"({top['rate_100k']:.0f} per 100,000): a head-office effect rather than a map of "
+                            "where consumers live.")
 
     if report["has_funnel"]:
         counts = metrics.funnel_counts(view)

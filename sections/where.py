@@ -8,17 +8,17 @@ from core.context import Context
 
 
 def render(ctx: Context) -> None:
-    st.header("4 · Where are reports concentrated?")
+    st.header("4 · Where are the reported businesses based?")
     if not ctx.report["has_geo"]:
         st.warning("The file has no département column, so geographic views are unavailable.")
         return
 
     st.warning(
-        "**Read with care.** The file does not say whether the département is where the *consumer* lives or "
-        "where the *reported business* is based. The very high rates in Paris and its inner suburbs "
-        "(Hauts-de-Seine, Val-de-Marne, Seine-Saint-Denis) look like head-office locations, so this tab may "
-        "show where businesses are registered rather than where consumers are. Confirm with the publisher "
-        "(DGCCRF) before drawing conclusions about residents.", icon="⚠️")
+        "**What “département” means here.** The file does not document it, but the data point to the "
+        "**location of the reported business**, not of the consumer: for online purchases, Paris alone holds "
+        "about a quarter of all reports, and Paris plus three inner suburbs about 42%. That is a "
+        "head-office effect. Read this tab as *where reported businesses are based*, not as where "
+        "consumers live, and confirm with the publisher (DGCCRF) before quoting it.", icon="⚠️")
     table = metrics.department_table(ctx.view)
     if table["n"].sum() == 0:
         st.warning("No located report in the current selection.")
@@ -31,10 +31,10 @@ def render(ctx: Context) -> None:
     median = table["rate_100k"].median()
     if metric == "rate_100k":
         ratio = f", **{top['rate_100k'] / median:.1f}×** the median département ({median:.0f})" if median else ""
-        ui.key_message(f"**{top['name']}** has the highest rate, **{top['rate_100k']:.0f} reports per "
+        ui.key_message(f"businesses based in **{top['name']}** draw the most reports, **{top['rate_100k']:.0f} per "
                        f"100,000 residents**{ratio}. Ranking by raw count would mostly rank population.")
     else:
-        ui.key_message(f"**{top['name']}** has the most reports (**{ui.fmt_int(top['n'])}**), but large "
+        ui.key_message(f"businesses based in **{top['name']}** draw the most reports (**{ui.fmt_int(top['n'])}**), but large "
                        "départements dominate raw counts: switch to the per-capita rate to compare fairly.")
 
     mainland = table[~table["is_overseas"]]
@@ -66,4 +66,4 @@ def render(ctx: Context) -> None:
                 "population_k": "Population (thousands)", "rate_100k": "Per 100,000 residents"})
         st.dataframe(show.round(1), hide_index=True, width="stretch")
     st.caption("Per-capita rates use rounded population figures and bubbles sit on approximate centroids "
-               "(see “Data & limits”). Differences between départements also reflect reporting habits.")
+               "(see “Data & limits”). Head offices and online sellers inflate Paris and its suburbs.")

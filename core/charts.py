@@ -50,7 +50,7 @@ def hbar(data: pd.DataFrame, x: str, y: str, title: str, x_title: str, y_title: 
     fig.update_yaxes(categoryorder="total ascending")
     fig.update_traces(textposition="outside", cliponaxis=False)
     if len(data):
-        fig.update_xaxes(range=[0, float(data[x].max()) * 1.35])     # room for the value labels
+        fig.update_xaxes(range=[0, float(data[x].max()) * 1.5])     # room for the value labels
     return _style(fig, title, x_title, y_title, height)
 
 
@@ -60,7 +60,8 @@ def yearly_bars(data: pd.DataFrame, partial_year: int | None, title: str) -> go.
     data["status"] = ["Incomplete year" if year == partial_year else "Complete year" for year in data["year"]]
     fig = px.bar(data, x="year", y="n", color="status", text="n",
                  color_discrete_map={"Complete year": PALETTE[0], "Incomplete year": MUTED})
-    fig.update_traces(texttemplate="%{text:,}", textposition="outside", cliponaxis=False, textfont_size=11)
+    fig.update_traces(texttemplate="%{y:.3s}", textposition="outside", cliponaxis=False, textfont_size=12,
+                      constraintext="none")
     fig.update_yaxes(range=[0, float(data["n"].max()) * 1.15])
     fig.update_xaxes(dtick=1)
     return _style(fig, title, "Year", "Reports per year", 400, "")
